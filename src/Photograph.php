@@ -24,7 +24,7 @@ class Photograph implements Responsable
     {
         $photograph = Browsershot::url(
         // request()->all() might seem dangerous at first. It's not.
-            route('og.generate', ['payload' => json_encode(request()->all())])
+            route('og.generate', ['payload' => json_encode(app('request')->all())])
         );
 
         return $this->prepareShooting($photograph)->screenshot();
